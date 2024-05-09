@@ -11,4 +11,12 @@ const Login = () => {
         username: undefined,
         password: undefined,
 })
-co
+const {loading, error, dispatch} = useContext(AuthContext); 
+
+const handleChange = (e)=>{
+    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value}))
+}
+
+
+
+}
