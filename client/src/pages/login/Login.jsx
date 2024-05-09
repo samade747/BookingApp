@@ -6,16 +6,24 @@ import "./login.css";
 import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
-    const navigate = useNavigate();
-    const [credentials, setCredentials] = useState({
+     const navigate = useNavigate();
+     const [credentials, setCredentials] = useState({
         username: undefined,
         password: undefined,
 })
 const {loading, error, dispatch} = useContext(AuthContext); 
 
 const handleChange = (e)=>{
-    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value}))
+      setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value}))
 }
+
+
+
+
+
+
+
+
 
 
 
