@@ -1,0 +1,74 @@
+.navbar{
+    height: 50px;
+    background-color: #003580;
+    display: flex;
+    justify-content: center;
+}
+.navContainer{
+    width: 100%;
+    max-width: 1024px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    font-weight: 500;
+    font-size: 20px;
+}
+.navItems{
+    display: flex;
+    gap: 20px;
+    
+}
+
+.navButton1{
+    border: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+}
+.navButton2{
+    border: none;
+    font-size: 18px;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #003580;
+}
+.userIcon{
+    border: 1px solid grey;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 50%;
+    display: none;
+}
+.userInfoWrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.userInfo>h2{
+   font-size: 16px;
+   font-weight: 400;
+   text-transform: capitalize;
+}
+.userInfo>p{
+    font-size: 12px;
+    font-weight: 300;
+    color: #FEBB02;
+}
+
+@media (max-width: 710px) {
+    .navItems{
+        display: none;
+    }
+    .userIcon{
+        display: flex;
+    }
+  }
