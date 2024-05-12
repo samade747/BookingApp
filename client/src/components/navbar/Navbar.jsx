@@ -11,7 +11,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
 
-    const {currentUser} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const userNameFirstLetter = user?.username.slice(0,1).toUpperCase();
     console.log(userNameFirstLetter);
 
