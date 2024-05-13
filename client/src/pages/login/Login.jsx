@@ -80,9 +80,9 @@ return(
         <div className="lContainer">
           <input type="text" placeholder="username" id="username" onChange={handleChange} className="lInput" />
           <input type="password" placeholder="password" id="password" onChange={handleChange} className="lInput" />
-
+            {/* button for login */}
           <button disabled={loading} onClick={loginhandler} className="lButton">Login </button>
-
+            {/* Display error message if login fails */}
           {error && <span>{error.message}</span>}
       </div>
       </div>
