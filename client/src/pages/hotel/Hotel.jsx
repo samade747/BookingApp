@@ -12,5 +12,33 @@ import { SearchContext } from '../../context/SearchContext'; // Importing the Se
 import Reserve from '../../components/reserve/Reserve'; // Importing the Reserve component from the components folder
 import { AuthContext } from '../../context/AuthContext';
 
+const Hotel = () => {
 
+    // 
+    const location = useLocation(); // Getting current location using the useLocation hook
+    const id = location.pathname.split("/")[2]; // extracting the id from the pathname
+
+    console.log(id); // logging the id to the console
+
+    const [slideNumber, setSlideNumber] = useState(0); // setting state for slideNumber with intial value
+    const [open, setOpen] = useState(false); // setting state for open with intial value
+    const [openModal, setOpenModal] = useState(false); // setting state for openModal with intial value
+
+    // Feteching hotels data using custom hook
+    const { data, loading, error } = useFetch(`http://localhost:5000/api/hotels/find/${id}`); // Using the useFetch hook to fetch data from the server
+
+    // Context API usage
+    const {dates, options}= useContext(SearchContext); // Extracting the dates and options from the SearchContext
+    const { user } = useContext(AuthContext); // Extracting the user from the AuthContext
+
+    const navigate = useNavigate(); // using the useNavigate hook to navigate
+
+    const 
+
+
+
+
+
+
+}
 
