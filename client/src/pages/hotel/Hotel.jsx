@@ -32,8 +32,75 @@ const Hotel = () => {
     const { user } = useContext(AuthContext); // Extracting the user from the AuthContext
 
     const navigate = useNavigate(); // using the useNavigate hook to navigate
+    const milli_seconds_per_day = 1000 * 60 * 60 * 24; // setting the milli_seconds to 1000
 
-    const 
+    function dayDfference(date1, date2) { // function to calculate the number of days between two dates
+        const timeDiff = Math.abs(date2.getTime() - date1.getTime()); // calculating the time difference in milliseconds
+        const diffDays = Math.ceil(timeDiff / milli_seconds_per_day); // calculating the number of days
+        return diffDays; // returning the number of days
+    }
+
+    const days = dayDfference(dates[0].endDate, dates[0].startDate); // calculating the number of days between the start and end dates
+
+    const handleOpen = (i) => { //  function to handle opening the modal
+        setSlideNumber(i); // setting the slideNumber to i
+        setOpen(true); // setting the open to true  
+        
+    }
+
+    const handleMove = (dir) => { // function to handle moving the slide  
+        let newSlideNumber;
+        if (dir === "l") { // if dir is left
+            newSlideNumber = slideNumber === 0 ? 5 : slideNumber - 1; // if slideNumber is 0 set newSlideNumber to 5 else set newSlideNumber to slideNumber - 1
+        } else { // if dir is right
+            newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1; // if slideNumber is 5 set newSlideNumber to 0 else set newSlideNumber to slideNumber + 1
+        }
+        setSlideNumber(newSlideNumber); // setting the slideNumber to newSlideNumber
+}
+
+    // booking seat confromation function
+    const handleClick = () => {
+        if (user) { //  if user is logged in
+            setOpenModal(true); // open the modal
+    } else { // if user is not logged in
+        navigate("/login"); // navigate to the login page
+    }
+}
+
+    return(
+        <div>
+            <Navbar /> {/* Rendering Navbar component */}
+            <Header type="list" /> {/* Rendering Header component with type "list" */}
+            {loading ? "Loading..." : <div className="hotelContainer">
+                {open && <div className="slider">
+                    <FontAwesomeIcon 
+                    icon={faCircleXmark}
+                    className="close"
+                    onClick={() => setOpen(false)}
+                    />
+                    
+                    <FontAwesomeIcon 
+                    
+                    
+                    />
+
+
+
+
+                    }
+                
+                }
+
+
+
+        </div>
+
+
+
+
+
+    )
+
 
 
 
@@ -41,4 +108,3 @@ const Hotel = () => {
 
 
 }
-
