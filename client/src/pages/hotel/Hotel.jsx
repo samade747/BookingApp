@@ -78,33 +78,70 @@ const Hotel = () => {
                     className="close"
                     onClick={() => setOpen(false)}
                     />
-                    
-                    <FontAwesomeIcon 
-                    
-                    
+                    <FontAwesomeIcon
+                    icon={faCirceleArrowLeft}
+                    className="arrow"
+                     onClick={() => handleMove("l")}
                     />
-
-
-
-
-                    }
-                
-                }
-
-
-
+                    <div className="sliderWrapper">
+                        <img src={data.photos[slideNumber]} alt="" className="sliderImg" />
+                    </div>
+                    <FontAwesomeIcon    
+                    icon={faCirceleArrowRight}
+                    className="arrow"
+                    onClick={() => handleMove("r")}
+                    />
+                </div>}
+                <div className="hotelWrapper">
+          <button className="bookNow">Reserve or Book Now!</button>
+          <h1 className="hotelTitle">{data?.name}</h1>
+          <div className="hotelAddress">
+            <FontAwesomeIcon icon={faLocationDot} />
+            <span>{data?.address}</span>
+          </div>
+          <span className="hotelDistance">
+            Excellent location - {data?.distance}m from center
+          </span>
+          <span className="hotelPriceHightlight">
+            Book a stay over ${data?.cheapestPrices} at this property and get a free airport taxi
+          </span>
+          <div className="hotelImages">
+            {
+              data.photos?.map((photo, ind) => (
+                <div className="hotelImgWrapper">
+                  <img src={photo} alt="" className="hotelImg" onClick={()=>handleOpen(ind)} />
+                </div>
+              ))
+            }
+          </div>
+          <div className="hotelDetails">
+            <div className="hotelDetailsTexts">
+              <h1 className="hotelTitle">{data.title}</h1>
+              <p className="hotelDesc">
+                {data.desc}
+              </p>
+            </div>
+            <div className="hotelDetailsPrice">
+              <h1>Perfect for a {days}-night stay!</h1>
+              <span>
+                Located in the real heart of Krakow, this property has an
+                excellent location score of 9.8!
+              </span>
+              <h2>
+                <b>${days && days * data.cheapestPrices * options.room }</b> ({days} nights)
+              </h2>
+              <button onClick={handleClick}>Reserve or Book Now!</button>
+            </div>
+          </div>
         </div>
-
-
-
-
-
-    )
-
-
-
-
-
-
-
+        <MailList />
+        <Footer />
+      </div>}
+      {
+        openModal && <Reserve setOpenModal={setOpenModal} id={id}/>
+      }
+    </div>
+  )
 }
+
+export default Hotel
